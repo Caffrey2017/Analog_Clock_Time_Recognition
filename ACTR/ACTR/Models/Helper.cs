@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,10 @@ namespace ACTR
                 return filename;
             }
             return null;
+        }
+        public static string GetImagesDirectory()
+        {
+            return Path.Combine(Directory.GetCurrentDirectory(), "Images");
         }
     }
 }

@@ -9,7 +9,7 @@ namespace ACTR
     /// <summary>
     /// Information about an image
     /// </summary>
-    class ImageModel
+    public class ImageModel
     {
         /// <summary>
         /// Gets or sets name.

@@ -19,7 +19,7 @@ namespace ACTR
         /// <summary>
         /// Working directory for saving processed images
         /// </summary>
-        private static string imagesWorkingDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Images");
+        private static string imagesWorkingDirectory = Helper.GetImagesDirectory();
 
         /// <summary>
         /// Processes source image
@@ -70,6 +70,11 @@ namespace ACTR
             sourceImage = new Image<Bgr, Byte>(path);
 
             filePath = Path.Combine(imagesWorkingDirectory, "source.png");
+
+            if (Directory.Exists(imagesWorkingDirectory))
+            {
+                Directory.Delete(imagesWorkingDirectory, true);
+            }
             Directory.CreateDirectory(imagesWorkingDirectory);
 
             CvInvoke.Imwrite(filePath, sourceImage);

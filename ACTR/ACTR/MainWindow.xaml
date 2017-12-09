@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ACTR"
         mc:Ignorable="d"
-        Title="Analog Clock Time Reader" Height="600" Width="800">
+        Title="Analog Clock Time Reader" Height="700" Width="800">
     <DockPanel>
         
         <!-- Menu -->
@@ -22,7 +22,7 @@
             <!-- Time display -->
             <Label FontWeight="Bold">Time: </Label>
             <Separator/>
-            <TextBlock FontSize="80" TextAlignment="Center" >00:00:00</TextBlock>
+            <TextBlock FontSize="80" TextAlignment="Center" Text="{Binding Time}" ></TextBlock>
             <Separator/>
 
 
@@ -35,9 +35,10 @@
                 
                 <StackPanel Grid.Column="0">
                     <Label Grid.Column="0" FontWeight="Bold">Processig step:</Label>
-                    <ComboBox Grid.Column="0" SelectedIndex="0">
-                        <ComboBoxItem>a</ComboBoxItem>
-                        <ComboBoxItem>b</ComboBoxItem>
+                    <ComboBox x:Name="StepSel" Grid.Column="0" SelectedIndex="{Binding SelectedStep}">
+                        <ComboBoxItem>gray</ComboBoxItem>
+                        <ComboBoxItem>blurred</ComboBoxItem>
+                        <ComboBoxItem>gradient</ComboBoxItem>
                     </ComboBox>
                 </StackPanel>
             </Grid>
@@ -53,13 +54,13 @@
                 <!-- Source image -->
                 <StackPanel Grid.Column="0" Margin="10">
                     <Label>Source image:</Label>
-                    <Image/>
+                    <Image x:Name="srcImg" Source="{Binding SourceFullPath}"/>
                 </StackPanel>
 
                 <!-- Processed image -->
                 <StackPanel Grid.Column="1" Margin="10">
                     <Label>Processed image, step *:</Label>
-                    <Image/>
+                    <Image x:Name="processedImg" Source="{Binding ProcessedFullPath}"/>
                 </StackPanel>
             </Grid>
         </StackPanel>

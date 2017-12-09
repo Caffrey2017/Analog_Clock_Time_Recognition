@@ -82,6 +82,7 @@
     </ApplicationDefinition>
     <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\ImageProcessing.cs" />
+    <Compile Include="Models\ProcessingSteps.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ImageViewModel.cs" />
     <Page Include="MainWindow.xaml">

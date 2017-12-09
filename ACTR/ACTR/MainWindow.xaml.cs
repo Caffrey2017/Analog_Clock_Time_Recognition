@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,10 @@ namespace ACTR
         {
             InitializeComponent();
 
-
+            if (Directory.Exists(Helper.GetImagesDirectory()))
+            {
+                Directory.Delete(Helper.GetImagesDirectory(), true);
+            }
             // Set DataContext to ViewModel
             this.DataContext = new ImageViewModel();
         }
@@ -36,6 +40,8 @@ namespace ACTR
             sourceImagePath = Helper.GetImageDialog();
 
             ImageProcessing.ProcessImage(sourceImagePath);
+
+            this.DataContext = new ImageViewModel();
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
