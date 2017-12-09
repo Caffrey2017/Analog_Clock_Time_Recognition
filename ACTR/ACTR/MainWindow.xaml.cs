@@ -23,6 +23,24 @@ namespace ACTR
         public MainWindow()
         {
             InitializeComponent();
+
+
+            // Set DataContext to ViewModel
+            this.DataContext = new ImageViewModel();
+        }
+
+        private void Open_Click(object sender, RoutedEventArgs e)
+        {
+            string sourceImagePath;
+
+            sourceImagePath = Helper.GetImageDialog();
+
+            ImageProcessing.ProcessImage(sourceImagePath);
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
