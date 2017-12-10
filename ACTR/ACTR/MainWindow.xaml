@@ -59,7 +59,7 @@
 
                 <!-- Processed image -->
                 <StackPanel Grid.Column="1" Margin="10">
-                    <Label>Processed image, step *:</Label>
+                    <Label Content="{Binding CurrentStep}" ContentStringFormat="Processing step: {0}"></Label>                    
                     <Image x:Name="processedImg" Source="{Binding ProcessedFullPath}"/>
                 </StackPanel>
             </Grid>

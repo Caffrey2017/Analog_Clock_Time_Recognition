@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace ACTR
 {
-    class ProcessingSteps
+    public class ProcessingSteps
     {
         public enum Steps
         {
+            none = -1,
             gray,
             blurred,
             gradient,

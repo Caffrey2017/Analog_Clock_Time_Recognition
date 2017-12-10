@@ -22,6 +22,18 @@ namespace ACTR
         /// </summary>
         public int SelectedStep { get; set; } = -1;
 
+        public ProcessingSteps.Steps CurrentStep
+        {
+            get
+            {
+               return (ProcessingSteps.Steps)SelectedStep;
+            }
+            set
+            {
+                CurrentStep = value;
+            }
+        }
+
 
         /// <summary>
         /// Source image full path
@@ -33,8 +45,12 @@ namespace ACTR
                 BitmapImage bi = new BitmapImage();
                 bi.BeginInit();
                 //bi.DecodePixelWidth = 30;
-                bi.StreamSource = new MemoryStream(File.ReadAllBytes(Path.Combine(Helper.GetImagesDirectory(), "source.png")));
-                bi.EndInit();
+                try
+                {
+                    bi.StreamSource = new MemoryStream(File.ReadAllBytes(Path.Combine(Helper.GetImagesDirectory(), "source.png")));
+                    bi.EndInit();
+                }
+                catch{}                
                 return bi;
             }
             set
@@ -59,8 +75,12 @@ namespace ACTR
                 BitmapImage bi = new BitmapImage();
                 bi.BeginInit();
                 //bi.DecodePixelWidth = 30;
-                bi.StreamSource = new MemoryStream(File.ReadAllBytes(Path.Combine(Helper.GetImagesDirectory(), (ProcessingSteps.Steps)SelectedStep + ".png")));
-                bi.EndInit();               
+                try
+                {
+                    bi.StreamSource = new MemoryStream(File.ReadAllBytes(Path.Combine(Helper.GetImagesDirectory(), CurrentStep + ".png")));
+                    bi.EndInit();
+                }
+                catch { }
                 return bi;
             }
             set
@@ -77,7 +97,7 @@ namespace ACTR
 
         public ImageViewModel()
         {
-           
+            this.CurrentStep = ProcessingSteps.Steps.none;
             this.SelectedStep = -1;
             this.ProcessedFullPath = null;
             this.Time = DateTime.Now.ToString("HH:mm:ss");
