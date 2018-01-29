@@ -21,6 +21,7 @@ namespace ACTR
         /// Currently selected processing step
         /// </summary>
         public int SelectedStep { get; set; } = -1;
+        DateTime time = DateTime.Now;
 
         public ProcessingSteps.Steps CurrentStep
         {
@@ -95,12 +96,12 @@ namespace ACTR
         /// </summary>
         public string Time { get; set; }
 
-        public ImageViewModel()
+        public ImageViewModel(DateTime timeRead)
         {
             this.CurrentStep = ProcessingSteps.Steps.none;
             this.SelectedStep = -1;
             this.ProcessedFullPath = null;
-            this.Time = DateTime.Now.ToString("HH:mm:ss");
+            this.Time =timeRead.ToString("HH:mm:ss");
         }
 
     }

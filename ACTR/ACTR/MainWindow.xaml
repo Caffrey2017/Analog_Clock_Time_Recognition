@@ -38,7 +38,9 @@
                     <ComboBox x:Name="StepSel" Grid.Column="0" SelectedIndex="{Binding SelectedStep}">
                         <ComboBoxItem>gray</ComboBoxItem>
                         <ComboBoxItem>blurred</ComboBoxItem>
+                        <ComboBoxItem>circle</ComboBoxItem>
                         <ComboBoxItem>gradient</ComboBoxItem>
+                        <ComboBoxItem>lines</ComboBoxItem>
                     </ComboBox>
                 </StackPanel>
             </Grid>

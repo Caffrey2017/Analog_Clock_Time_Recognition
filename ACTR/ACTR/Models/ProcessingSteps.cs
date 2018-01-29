@@ -13,8 +13,9 @@ namespace ACTR
             none = -1,
             gray,
             blurred,
+            circle,
             gradient,
-            circle
+            lines
         }
     }
 }

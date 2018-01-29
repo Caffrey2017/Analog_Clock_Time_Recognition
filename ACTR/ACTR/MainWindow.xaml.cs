@@ -30,7 +30,7 @@ namespace ACTR
                 Directory.Delete(Helper.GetImagesDirectory(), true);
             }
             // Set DataContext to ViewModel
-            this.DataContext = new ImageViewModel();
+            this.DataContext = new ImageViewModel(DateTime.Now);
         }
 
         private void Open_Click(object sender, RoutedEventArgs e)
@@ -39,9 +39,11 @@ namespace ACTR
 
             sourceImagePath = Helper.GetImageDialog();
 
-            ImageProcessing.ProcessImage(sourceImagePath);
+            var process = new ImageProcessing();
+            var timeRead = process.ProcessImage(sourceImagePath);
+ 
 
-            this.DataContext = new ImageViewModel();
+            this.DataContext = new ImageViewModel(timeRead);
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
