@@ -15,8 +15,8 @@ namespace ACTR
 
             dialogBox = new Microsoft.Win32.OpenFileDialog();
 
-            dialogBox.DefaultExt = ".png";
-            dialogBox.Filter = "PNG Files (*.png)|*.png|JPEG Files (*.jpeg)|*.jpeg|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+            dialogBox.DefaultExt = ".jpg";
+            dialogBox.Filter = "JPG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|JPEG Files (*.jpeg)|*.jpeg";
 
             Nullable<bool> result = dialogBox.ShowDialog();
 
