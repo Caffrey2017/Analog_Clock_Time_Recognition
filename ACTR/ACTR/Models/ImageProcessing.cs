@@ -150,7 +150,7 @@ namespace ACTR
 
 
             hour = this.ConvertRange(0, 360, 0, 12, (int)hatan2);
-            minute = this.ConvertRange(0, 360, 0, 60, (int)matan2);
+            minute = this.ConvertRange(0, 360, 0, 59, (int)matan2);
 
             return new DateTime(1, 1, 1,hour, minute, 0);
         }
